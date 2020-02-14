@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const argv = require('yargs').argv;
