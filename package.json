@@ -1,6 +1,6 @@
 {
   "name": "ng-lint-report",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Generates HTML report for angular lint JSON output",
   "main": "index.js",
   "scripts": {
