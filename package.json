@@ -1,0 +1,32 @@
+{
+  "name": "ng-lint-report",
+  "version": "0.1.0",
+  "description": "Generates HTML report for angular lint JSON output",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scssyworks/ng-lint-report.git"
+  },
+  "keywords": [
+    "angular",
+    "linting",
+    "lint",
+    "reporting",
+    "reports",
+    "html-report"
+  ],
+  "author": "scssyworks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scssyworks/ng-lint-report/issues"
+  },
+  "homepage": "https://github.com/scssyworks/ng-lint-report#readme",
+  "devDependencies": {
+    "chalk": "^3.0.0",
+    "fs-extra": "^8.1.0",
+    "yargs": "^15.1.0"
+  }
+}
