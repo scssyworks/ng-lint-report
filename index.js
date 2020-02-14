@@ -12,7 +12,7 @@ const outputFileName = argv.filename || 'report.html';
 if (typeof jsonOutputPath === 'string') {
     const htmlTemplate = fs.readFileSync(`${rootDir}/src/index.html`, 'utf8');
     try {
-        let jsonOutput = JSON.parse(fs.readFileSync(`${currentWorkingDir}/${jsonOutputPath}`, 'utf8'));
+        let jsonOutput = JSON.parse(fs.readFileSync(path.join(currentWorkingDir, jsonOutputPath), 'utf8'));
         // Process JSON
         if (Array.isArray(jsonOutput)) {
             const jsonMap = {};
@@ -44,7 +44,10 @@ if (typeof jsonOutputPath === 'string') {
                 }).join('')}</ul>
                 </div>`;
             });
-            fs.writeFileSync(`${currentWorkingDir}/${reportOutputPath}/${outputFileName}`, htmlTemplate.replace('#{placeholder}', `<div class="result-outer-wrap">${html}</div>`));
+            const outputFolders = path.join(currentWorkingDir, reportOutputPath);
+            if (!fs.existsSync(outputFolders))
+                fs.mkdirsSync(outputFolders);
+            fs.writeFileSync(path.join(outputFolders, outputFileName), htmlTemplate.replace('#{placeholder}', `<div class="result-outer-wrap">${html}</div>`));
         } else {
             throw new Error('JSON format is not valid');
         }
