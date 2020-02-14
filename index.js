@@ -12,7 +12,12 @@ const outputFileName = argv.filename || 'report.html';
 if (typeof jsonOutputPath === 'string') {
     const htmlTemplate = fs.readFileSync(`${rootDir}/src/index.html`, 'utf8');
     try {
-        let jsonOutput = JSON.parse(fs.readFileSync(path.join(currentWorkingDir, jsonOutputPath), 'utf8'));
+        let jsonOutput = [];
+        try {
+            jsonOutput = JSON.parse(fs.readFileSync(path.join(currentWorkingDir, jsonOutputPath), 'utf8'));
+        } catch (e) {
+            jsonOutput = [];
+        }
         // Process JSON
         if (Array.isArray(jsonOutput)) {
             const jsonMap = {};
@@ -31,19 +36,24 @@ if (typeof jsonOutputPath === 'string') {
             jsonOutput = null;
             // Render output
             let html = '';
-            Object.keys(jsonMap).forEach(filename => {
-                html += `<button class="file-name clearfix">${filename} <em class="float-right">(${jsonMap[filename].length} issue(s) found) <span>+</span></em></button>`;
-                html += `<div class="result-wrap">
+            const jsonMapKeys = Object.keys(jsonMap);
+            if (jsonMapKeys.length) {
+                jsonMapKeys.forEach(filename => {
+                    html += `<button class="file-name clearfix">${filename} <em class="float-right">(${jsonMap[filename].length} issue(s) found) <span>+</span></em></button>`;
+                    html += `<div class="result-wrap">
                 <ul><li class="item-head"><span>Path</span><span>Rule</span><span>Error</span><span>Position</span></li>${jsonMap[filename].map(item => {
-                    return `<li class="item is-${item.type.toLowerCase()}">
+                        return `<li class="item is-${item.type.toLowerCase()}">
                     <span class="item-cell path">${item.path}</span>
                     <span class="item-cell rule">${item.rule}</span>
                     <span class="item-cell type">${item.type}</span>
                     <span class="item-cell position">${item.position}</span>
                     </li>`;
-                }).join('')}</ul>
+                    }).join('')}</ul>
                 </div>`;
-            });
+                });
+            } else {
+                html += '<h2>No errors!</h2>';
+            }
             const outputFolders = path.join(currentWorkingDir, reportOutputPath);
             if (!fs.existsSync(outputFolders))
                 fs.mkdirsSync(outputFolders);
