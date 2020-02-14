@@ -32,7 +32,7 @@ if (typeof jsonOutputPath === 'string') {
             // Render output
             let html = '';
             Object.keys(jsonMap).forEach(filename => {
-                html += `<button class="file-name">${filename} (<span>+</span>)</button>`;
+                html += `<button class="file-name">${filename} [Total: ${jsonMap[filename]}] (<span>+</span>)</button>`;
                 html += `<div class="result-wrap">
                 <ul><li class="item-head"><span>Path</span><span>Rule</span><span>Error</span><span>Position</span></li>${jsonMap[filename].map(item => {
                     return `<li class="item is-${item.type.toLowerCase()}">
