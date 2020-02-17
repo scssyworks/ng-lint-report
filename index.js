@@ -18,6 +18,7 @@ if (typeof jsonOutputPath === 'string') {
         } catch (e) {
             jsonOutput = [];
         }
+        const totalErrors = jsonOutput.length;
         // Process JSON
         if (Array.isArray(jsonOutput)) {
             const jsonMap = {};
@@ -35,7 +36,7 @@ if (typeof jsonOutputPath === 'string') {
             });
             jsonOutput = null;
             // Render output
-            let html = '';
+            let html = `<h3>Total Issues: ${totalErrors}</h3>`;
             const jsonMapKeys = Object.keys(jsonMap);
             if (jsonMapKeys.length) {
                 jsonMapKeys.forEach(filename => {
