@@ -31,7 +31,8 @@ if (typeof jsonOutputPath === 'string') {
                     path: item.name,
                     rule: item.ruleName,
                     type: item.ruleSeverity,
-                    position: `${item.startPosition.line}:${item.startPosition.character}`
+                    failure: item.failure,
+                    position: `Line: ${item.endPosition.line} Col: ${item.startPosition.character}`
                 });
             });
             jsonOutput = null;
@@ -43,8 +44,8 @@ if (typeof jsonOutputPath === 'string') {
                     html += `<button class="file-name clearfix">${filename} <em class="float-right">(${jsonMap[filename].length} issue(s) found) <span>+</span></em></button>`;
                     html += `<div class="result-wrap">
                 <ul><li class="item-head"><span>Path</span><span>Rule</span><span>Error</span><span>Position</span></li>${jsonMap[filename].map(item => {
-                        return `<li class="item is-${item.type.toLowerCase()}">
-                    <span class="item-cell path">${item.path}</span>
+                        return `<li title="${item.path}" class="item is-${item.type.toLowerCase()}">
+                    <span class="item-cell failure">${item.failure}</span>
                     <span class="item-cell rule">${item.rule}</span>
                     <span class="item-cell type">${item.type}</span>
                     <span class="item-cell position">${item.position}</span>
