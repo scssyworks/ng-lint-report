@@ -13,9 +13,7 @@ In ``package.json`` add following scripts
 
 ```json
 {
-    ...
-    "script": {
-        ...
+    "scripts": {
         "lint": "ng lint --format json > jsonOutput.json",
         "report": "ng-lint-report --jsonfile jsonOutput.json",
         "ng-lint": "npm run lint && npm run report"
