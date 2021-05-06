@@ -14,7 +14,7 @@ In ``package.json`` add following scripts
 ```json
 {
     "scripts": {
-        "lint": "ng lint --format json > jsonOutput.json",
+        "lint": "ng lint --format json --silent > jsonOutput.json",
         "report": "ng-lint-report --jsonfile jsonOutput.json",
         "ng-lint": "npm run lint && npm run report"
     }
