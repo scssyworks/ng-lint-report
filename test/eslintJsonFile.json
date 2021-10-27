@@ -1,0 +1,48 @@
+[
+  {
+    "filePath": "/Users/sacsingh2/Documents/Projects/Sachin/angular-projects/ang-lint-test/src/app/app.component.ts",
+    "messages": [
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 11,
+        "column": 5,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 11,
+        "endColumn": 16
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css'],\n})\nexport class AppComponent {\n  title = 'ang-lint-test';\n  private testMethod(): void {\n    console.log('test');\n  }\n}\n",
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "/Users/sacsingh2/Documents/Projects/Sachin/angular-projects/ang-lint-test/src/main.ts",
+    "messages": [
+      {
+        "ruleId": "no-console",
+        "severity": 2,
+        "message": "Unexpected console statement.",
+        "line": 12,
+        "column": 17,
+        "nodeType": "MemberExpression",
+        "messageId": "unexpected",
+        "endLine": 12,
+        "endColumn": 30
+      }
+    ],
+    "errorCount": 1,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "source": "import { enableProdMode } from '@angular/core';\nimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';\n\nimport { AppModule } from './app/app.module';\nimport { environment } from './environments/environment';\n\nif (environment.production) {\n  enableProdMode();\n}\n\nplatformBrowserDynamic().bootstrapModule(AppModule)\n  .catch(err => console.error(err));\n",
+    "usedDeprecatedRules": []
+  }
+]

@@ -1,107 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Report</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            padding: 0;
-            margin: 0;
-            color: #333;
-        }
-        .main-content {
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-        ul {
-            display: table;
-            border-collapse: collapse;
-            margin: 0;
-            padding: 0;
-            table-layout: fixed;
-            width: 100%;
-        }
-        li {
-            list-style: none;
-            display: table-row;
-        }
-        li.is-error {
-            background-color: #feb2a8;
-            font-weight: bold;
-        }
-        li.is-warning {
-            background-color: #f6d55c;
-        }
-        li span {
-            display: table-cell;
-            padding: 10px;
-            font-size: 14px;
-            word-wrap: break-word;
-            border: 1px solid;
-        }
-        .item-head span {
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        button {
-            background-color:#fe9c8f;
-            border: 0;
-            padding: 15px;
-            width: 100%;
-            text-align: left;
-            font-weight: bold;
-            font-size: 18px;
-            border: 1px solid #333;
-            box-shadow: 0 3px 7px -3px;
-        }
-        .result-wrap {
-            display: none;
-        }
-        .result-wrap.show {
-            display: block;
-        }
-        .clearfix::before,
-        .clearfix::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-        .float-right {
-            float: right;
-        }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        color: #333;
+      }
+      .main-content {
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      ul {
+        display: table;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        table-layout: fixed;
+        width: 100%;
+      }
+      li {
+        list-style: none;
+        display: table-row;
+      }
+      li.is-error {
+        background-color: #feb2a8;
+        font-weight: bold;
+      }
+      li.is-warning {
+        background-color: #f6d55c;
+      }
+      li span {
+        display: table-cell;
+        padding: 10px;
+        font-size: 14px;
+        word-wrap: break-word;
+        border: 1px solid;
+      }
+      .item-head span {
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      button {
+        background-color: #fe9c8f;
+        border: 0;
+        padding: 15px;
+        width: 100%;
+        text-align: left;
+        font-weight: bold;
+        font-size: 18px;
+        border: 1px solid #333;
+        box-shadow: 0 3px 7px -3px;
+      }
+      .result-wrap {
+        display: none;
+      }
+      .result-wrap.show {
+        display: block;
+      }
+      .clearfix::before,
+      .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+      .float-right {
+        float: right;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-content">
-        <h1>TSLint Report</h1>
-        ##placeholder##
+      <h1>Lint Report</h1>
+      ##placeholder##
     </div>
     <script>
-        var content = document.querySelector('.main-content');
-        content.addEventListener('click', e => {
-            var currentTarget = null;
-            if (e.target.nodeName === 'BUTTON') {
-                currentTarget = e.target;
-            }
-            if (e.target.parentNode.nodeName === 'BUTTON') {
-                currentTarget = e.target.parentNode;
-            }
-            if (currentTarget) {
-                var thisBtnSpan = currentTarget.querySelector('span');
-                var icon = thisBtnSpan.textContent.trim();
-                if (icon === '+') {
-                    thisBtnSpan.textContent = '-';
-                } else {
-                    thisBtnSpan.textContent = '+';
-                }
-                currentTarget.nextElementSibling.classList.toggle('show');
-            }
-        });
+      var content = document.querySelector('.main-content');
+      content.addEventListener('click', (e) => {
+        var currentTarget = null;
+        if (e.target.nodeName === 'BUTTON') {
+          currentTarget = e.target;
+        }
+        if (e.target.parentNode.nodeName === 'BUTTON') {
+          currentTarget = e.target.parentNode;
+        }
+        if (currentTarget) {
+          var thisBtnSpan = currentTarget.querySelector('span');
+          var icon = thisBtnSpan.textContent.trim();
+          if (icon === '+') {
+            thisBtnSpan.textContent = '-';
+          } else {
+            thisBtnSpan.textContent = '+';
+          }
+          currentTarget.nextElementSibling.classList.toggle('show');
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
